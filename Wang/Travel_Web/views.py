@@ -7,7 +7,7 @@ import json
 
 def index(request):
    
-    return render(request,'index.html)
+    return render(request,'index.htm')
 
 def city_home(request):
     if settings.CITYFLAG == 0:
