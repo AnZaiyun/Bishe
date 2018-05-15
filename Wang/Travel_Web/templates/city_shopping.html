@@ -1,0 +1,123 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=1024">
+        <meta http-equiv="Cache-Control" content="no-siteapp " />
+        <link rel="canonical" href="http://you.ctrip.com/shopping/shanghai2.html" />
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/common/css/common.v2.0.css?t=20180411200650" />
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/fed/css/fed.v2.0.css?t=20180411200650" />
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/ttd_shopping/css/city_shopping.v2.0.css?t=20180411200650" />
+    </head>
+
+    <body>
+
+        <div class="content cf ">
+            <div class="dest_toptitle">
+                 <div class="cf">
+                     <div class="f_left">
+                         <h1>
+                             <a title="{{ cityname }}" href="http://127.0.0.1:8000">    {{ cityname }}</a>
+                         </h1>
+{#                         <p>Shanghai</p>#}
+                     </div>
+                 </div>
+                 <div class="sec_line cf">
+                     <p class="c_text_left ellipsis">    欢迎您访问{{ cityname }}</p>
+                 </div>
+             </div>
+        </div>
+        <div class="ttd_topnav_box">
+            <div class="ttd_topnav">
+                <div class="innerbox">
+                     <ul class="cf">
+                         <li class="ttd_first_nav">
+                             <a href="/city_home">主页</a>
+                         </li>
+{#                         <li>#}
+{#                             <a href="/traffic/shanghai2.html">交通</a>#}
+{#                         </li>#}
+                         <li>
+                             <a href="/city_sight">景点</a>
+                         </li>
+                         <li>
+                             <a href="/city_restandfood">美食</a>
+                         </li>
+                         <li class="current">
+                             <a href="/city_shopping">购物</a>
+                         </li>
+                         <li>
+                             <a href="/city_travel">行程</a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+
+        <div class="des_wide" >
+            <div class="normalbox channelspace" style="margin: 0 auto">
+                <div class="normaltitle">
+                    <h1>{{ cityname }}<span>特色商品</span></h1>
+                </div>
+                <div class="card_list fs_card">
+                    <ul>
+                        {% for thing in gods %}
+                        <li>
+                            <span class="ttd_nopic220" name="goods_img">
+                                <img src="{{ thing.gods_pic }}" width="270" height="170" writing="20662309" title="来源网站：{{ thing.gods_web }}"/>
+                            </span>
+                            <dl>
+                                <dt><a  title="哪里买:{{ thing.gods_where }}">{{ thing.gods_name }}</a></dt>
+                                <dd title="{{ thing.gods_info }}">{{ thing.gods_info }}</dd>
+                            </dl>
+                        </li>
+                        {% endfor %}
+
+            </ul>
+        </div>
+</div>
+            <!--商店列表-->
+<div class="normalbox" style="margin: 0 auto">
+            <div class="normaltitle">
+                <h1>{{ cityname }}<span>必逛购物地</span></h1>
+                <span class="rbox"><a class="f_14" href="/city_shop">更多{{ cityname }}购物地<i class="f14_more_arror"></i></a></span>
+            </div>
+        <div class="card_list in_card shopping_index">
+            <ul>
+                {% for shop in shops %}
+                    <li>
+
+                        <span class="ttd_nopic220" name="shop_img">
+                            <img src="{{ shop.shop_pic }}" width="270" height="170" writing="118018850" title="来源网站：{{ shop.shop_web }}"/>
+                        </span>
+                        <dl>
+                            <dt>
+                                <i class="shopping"></i>
+                                <span class="ellipsis" title="{{ shop.shop_name }}">{{ shop.shop_name }}</span>
+                            </dt>
+                            <dd>
+                                <span class="special_tips">
+                                </span>
+                                <span class="score"><strong>{{ shop.shop_score }}</strong>分</span>
+                                <span class="comment_text">{{ shop.shop_time }}</span>
+                            </dd>
+                                <dd class="textdetail">
+                                    <p class="ellipsis">{{ shop.shop_addre }}</p>
+                                    <p class="ellipsis" title="{{ shop.shop_info }}">{{ shop.shop_info }}</p>
+                                </dd>
+                        </dl>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+</div>
+
+
+        </div>
+
+
+
+
+    </body>
+</html>

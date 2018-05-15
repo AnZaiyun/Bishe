@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/common/css/common.v2.0.css?t=20180411200650" />
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/fed/css/fed.v2.0.css?t=20180411200650" />
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/ttd2/css/city_sight.v2.0.css?t=20180411200650" />
+    </head>
+
+    <body>
+    <div class="content cf ">
+        <div class="dest_toptitle">
+            <div class="cf">
+                <div class="f_left">
+                    <h1>
+                        <a title="{{ cityname }}" href="">    {{ cityname }}</a>
+                    </h1>
+{#                         <p>Shanghai</p>#}
+                </div>
+            </div>
+            <div class="sec_line cf">
+                <p class="c_text_left ellipsis">    欢迎您访问{{ cityname }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ttd_topnav_box">
+        <div class="ttd_topnav">
+            <div class="innerbox">
+                <ul class="cf">
+                    <li class="ttd_first_nav">
+                        <a href="/city_home">主页</a>
+                    </li>
+{#                    <li>#}
+{#                        <a href="/traffic/shanghai2.html">交通</a>#}
+{#                    </li>#}
+                    <li >
+                        <a href="/city_sight">景点</a>
+                    </li>
+                    <li class="current">
+                        <a href="/city_restandfood">美食</a>
+                    </li>
+                    <li>
+                        <a href="/city_shopping">购物</a>
+                    </li>
+                    <li>
+                        <a href="/city_travel">行程</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+        <div class="search_wide">
+            <form action="/city_rest/search" method="get">
+                搜索餐馆:<input type="text"  placeholder="输入餐馆名称" id="restname" name="restname" pattern="([\u4e00-\u9fa5]+)">
+                <input type="submit"  href="/city_rest/search" value="GO!" onclick="checkform()">
+            </form>
+            <script type="text/javascript">
+                                    function checkform(){
+                                        if(document.getElementById('restname').value.length==0){
+                                            alert('输入为空！');
+                                            document.getElementById('name').focus();
+                                            return false;
+                                        }
+                                        if(document.getElementById('restname').value=="请输入搜索内容"){
+                                            alert('输入为空！');
+                                            document.getElementById('name').focus();
+                                            return false;
+                                        }
+                                    }
+                                </script>
+        </div>
+        <!--城市餐馆地点-->
+        <div class="list_wide_mod2" style="margin: 0 auto">
+            {% for rest in rests %}
+                <div class="list_mod2">
+                    <div class="leftimg">
+                        <a target="_blank">
+                            <img src="{{ rest.rest_pic }}" width="220" height="140" img-id="240772245" title="TEL:{{ rest.rest_tel }}  来源网站：{{ rest.rest_web }}"/>
+                        </a>
+                    </div>
+                    <div class="rdetailbox">
+                        <dl>
+                            <dt>
+                                <i class="shop"></i>
+                                <a target="_blank" title="{{ rest.rest_info }}">{{ rest.rest_name }}(人均价格：{{ rest.rest_price }})</a>
+                            </dt>
+                            <dd class="ellipsis">地点：{{ rest.rest_addre }}</dd>
+                            <dd>营业时间：{{ rest.rest_time }}</dd>
+                            <dd class="ellipsis" title="{{ rest.rest_food }}">特色美食：{{ rest.rest_food }}</dd>
+                        </dl>
+                        <ul class="r_comment">
+                            <li><a class="score" ><strong>{{ rest.rest_score }}</strong>&nbsp;分</a></li>
+                            <li><span class="starlist"><span style=width:90%;>
+
+                                                       <!--星星算法，内层span写入宽度，20%为一颗星,默认一颗星-->
+                            </span></span
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </body>
+</html>

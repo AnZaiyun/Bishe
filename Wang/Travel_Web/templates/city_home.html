@@ -1,0 +1,112 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=1024">
+        <meta http-equiv="Cache-Control" content="no-siteapp " />
+        <meta name="mobile-agent" content="format=html5;url=http://m.ctrip.com/html5/you/place/Shanghai2.html" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.ctrip.com/html5/you/place/Shanghai2.html" >
+        <link rel="canonical" href="http://you.ctrip.com/place/shanghai2.html" />
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/common/css/common.v2.0.css?t=20180411200650" />
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/fed/css/fed.v2.0.css?t=20180411200650" />
+        <link charset="utf-8" type="text/css" rel="stylesheet" href="http://webresource.c-ctrip.com/resgswebonline/R1/ttd2/css/city.v2.0.css?t=20180411200650" />
+
+    </head>
+    <body>
+
+
+
+     <div class="content cf ">
+         <div class="dest_toptitle">
+                 <div class="cf">
+                     <div class="f_left">
+                         <h1>
+                             <a title="{{ cityname }}" href="http://127.0.0.1:8000">    {{ cityname }}</a>
+                         </h1>
+{#                         <p>Shanghai</p>#}
+
+                     </div>
+                 </div>
+                 <div class="sec_line cf">
+
+                     <p class="c_text_left ellipsis">
+    欢迎您访问{{ cityname }}                    </p>
+                 </div>
+             </div>
+     </div>
+         <div class="ttd_topnav_box">
+             <div class="ttd_topnav">
+                 <div class="innerbox">
+                     <ul class="cf">
+
+<li class="ttd_first_nav current">
+    <a href="/city_home">主页</a>
+</li>
+{#<li>#}
+{#    <a href="/traffic/shanghai2.html">交通</a>#}
+{#</li>#}
+                         <li>
+                         <a href="/city_sight">景点</a>
+</li><li>        <a href="/city_restandfood">美食</a>
+</li><li>        <a href="/city_shopping">购物</a>
+</li><li>        <a href="/city_travel">行程</a>
+</li>                    </ul>
+                 </div>
+             </div>
+         </div>
+     <!--二级导航-->
+
+
+    <div class="content" >
+        <div class="des_wide f_right">
+
+            <!--首页热门照片-->
+            <div class="slide_show" style="display: table-cell;vertical-align: middle">
+                <div data-inner="" class="imgbackgbox">
+                <img data-item="0" src="{{ citypic }}" width="880" height="350"   class="current"    alt="" />
+                </div>
+
+            </div>
+
+
+
+
+
+<div class="card_list" >
+        <div id="poi_0">
+            <ul>
+                {% for sight in sights %}
+                    <li><span class="ttd_nopic220">
+                            <img width="270" height="170" src="{{ sight.sight_pic }}" data-original="{{ sight.sight_pic }}"/>
+
+                        </span>
+                            <s class="ico_list"></s>
+                        <dl>
+                            <dt>
+
+                                <i class="sight"></i>
+                                <span class="ellipsis">{{ sight.sight_name }}</span>
+                            </dt>
+                            <dd>
+                                <span class="starlist"><span style="width: 90%;">
+                                                       </span></span><span class="score"><strong>{{ sight.sight_score }}</strong>分 </span><span
+                                                                                                                                                       class="comment_text"></span>
+                            </dd>
+                            <dd class="textdetail" title="{{ sight.sight_info }}">{{ sight.sight_info }}</dd>
+
+                        </dl>
+                        <a href="/sight/shanghai2/1412255.html" class="all_link" target="_blank" title="{{ sight.sight_name }}"></a></li>
+                {% endfor %}
+            </ul>
+            <p class="nolinemore">
+                <a href="/city_sight" target="_blank">更多景点<i class="f14_more_arror"></i></a></p>
+        </div>
+        </div>
+</div>
+    </div>
+
+
+    </body>
+</html>
