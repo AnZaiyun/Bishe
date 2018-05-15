@@ -6,18 +6,8 @@ import json
 # Create your views here.
 
 def index(request):
-    settings.CITYFLAG = 0
-    city = Cityurl.objects.filter().order_by('?')[:6]
-    context = {
-        'citys_1' : city[0:1],
-        'citys_2': city[1:2],
-        'citys_3': city[2:3],
-        'citys_4': city[3:4],
-        'citys_5': city[4:5],
-        'citys_6': city[5:6],
-    }
-    settings.CITYFLAG = 0
-    return render(request,'index.html',context=context)
+   
+    return render(request,'index.html)
 
 def city_home(request):
     if settings.CITYFLAG == 0:
